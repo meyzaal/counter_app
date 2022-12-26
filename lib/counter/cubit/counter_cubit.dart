@@ -4,7 +4,7 @@ class CounterCubit extends Cubit<int> {
   CounterCubit() : super(0);
 
   // reset state
-  void clear() => emit(state - state);
+  void reset() => emit(state - state);
 
   // add 1 to the current state
   void increment() => emit(state + 1);
