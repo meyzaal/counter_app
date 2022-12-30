@@ -11,5 +11,9 @@ class CounterPage extends StatelessWidget {
       create: (_) => CounterCubit(),
       child: const CounterView(),
     );
+    // return MultiBlocProvider(providers: [
+    //   BlocProvider(create: (_) => CounterCubit()),
+    //   BlocProvider(create: (_) => ThemeCubit())
+    // ], child: const CounterPage());
   }
 }
