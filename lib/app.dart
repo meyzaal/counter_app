@@ -4,20 +4,21 @@ import 'package:flutter_learn_bloc/counter/counter.dart';
 import 'package:flutter_learn_bloc/counter/cubit/theme_cubit.dart';
 
 class CounterApp extends StatelessWidget {
-  const CounterApp({super.key});
+  final bool currentTheme;
+
+  const CounterApp({super.key, required this.currentTheme});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeCubit, bool>(builder: (context, state) {
-      context.read<ThemeCubit>().themeService();
+    return BlocBuilder<ThemeCubit, bool?>(builder: (context, state) {
+      context.read<ThemeCubit>().onThemeChange();
 
       return MaterialApp(
-        home: const CounterPage(),
-        debugShowCheckedModeBanner: false,
-        theme: state
-            ? ThemeData.dark(useMaterial3: true)
-            : ThemeData.light(useMaterial3: true),
-      );
+          home: const CounterPage(),
+          debugShowCheckedModeBanner: false,
+          theme: (state ?? currentTheme)
+              ? ThemeData.dark(useMaterial3: true)
+              : ThemeData.light(useMaterial3: true));
     });
   }
 }

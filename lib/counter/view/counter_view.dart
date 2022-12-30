@@ -10,7 +10,6 @@ class CounterView extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      
       appBar: AppBar(
         title: const Text('Counter'),
       ),
